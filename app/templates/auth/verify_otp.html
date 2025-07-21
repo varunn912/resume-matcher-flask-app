@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content-section auth-form otp-form">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset>
+            <legend>Verify Your Account</legend>
+            <p>An OTP has been generated for you. Please enter the 6-digit code to continue.</p>
+            <div class="form-field">
+                {{ form.otp.label }}
+                {{ form.otp(placeholder="123456", autocomplete="one-time-code", inputmode="numeric") }}
+                {% if form.otp.errors %}<div class="invalid-feedback">{% for error in form.otp.errors %}<span>{{ error }}</span>{% endfor %}</div>{% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock content %}

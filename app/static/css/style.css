@@ -1,0 +1,120 @@
+/* --- Root Variables --- */
+:root {
+    --font-family: 'Inter', sans-serif;
+    /* Light Theme */
+    --c-primary: #6d28d9; --c-primary-light: #8b5cf6;
+    --c-secondary: #10b981;
+    --c-text: #1f2937; --c-text-muted: #6b7280;
+    --c-bg: #f9fafb; --c-surface: #ffffff;
+    --c-border: #e5e7eb; --c-shadow: rgba(0, 0, 0, 0.05);
+    --c-success: #16a34a; --c-danger: #dc2626;
+}
+/* Dark Theme */
+.dark-mode {
+    --c-primary: #8b5cf6; --c-primary-light: #a78bfa;
+    --c-secondary: #34d399;
+    --c-text: #e5e7eb; --c-text-muted: #9ca3af;
+    --c-bg: #111827; --c-surface: #1f2937;
+    --c-border: #374151; --c-shadow: rgba(0, 0, 0, 0.2);
+}
+
+/* --- Base & Global Styles --- */
+* { box-sizing: border-box; }
+body {
+    font-family: var(--font-family); background-color: var(--c-bg); color: var(--c-text);
+    margin: 0; line-height: 1.6; transition: background-color 0.3s, color 0.3s;
+}
+.background-gradient { position: fixed; top: 0; left: 0; width: 100%; height: 50vh; z-index: -1;
+    background: radial-gradient(circle at top, hsla(262, 69%, 52%, 0.2), transparent 40%);
+}
+.dark-mode .background-gradient { background: radial-gradient(circle at top, hsla(262, 69%, 52%, 0.3), transparent 40%); }
+.container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+a { color: var(--c-primary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+a:hover { color: var(--c-primary-light); }
+
+/* --- Header & Navbar --- */
+.site-header { padding: 1rem 0; position: sticky; top: 0; z-index: 100;
+    background-color: hsla(0, 0%, 100%, 0.5); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--c-border);
+}
+.dark-mode .site-header { background-color: hsla(222, 47%, 11%, 0.5); }
+.navbar { display: flex; justify-content: space-between; align-items: center; }
+.navbar-brand { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; font-weight: 700; color: var(--c-text); }
+.navbar-nav { display: flex; align-items: center; gap: 1.5rem; }
+.nav-link { font-weight: 500; color: var(--c-text-muted); transition: color 0.2s; }
+.nav-link:hover { color: var(--c-text); }
+.theme-toggle-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; display: flex; }
+.moon-icon, .dark-mode .sun-icon { display: none; }
+.sun-icon, .dark-mode .moon-icon { display: block; }
+
+/* --- Content Sections & Forms --- */
+.content-section {
+    background: var(--c-surface); padding: 2.5rem; border: 1px solid var(--c-border);
+    border-radius: 1rem; margin: 3rem 0; box-shadow: 0 10px 30px var(--c-shadow);
+}
+.auth-form legend, .matcher-header h1, .results-header h1, .history-header h1 {
+    font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem;
+}
+.auth-form p, .matcher-header p, .results-header p, .history-header p {
+    text-align: center; color: var(--c-text-muted); margin-bottom: 2rem; max-width: 500px; margin-inline: auto;
+}
+.form-field { margin-bottom: 1.5rem; }
+.form-field label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+.form-field input, .form-field textarea {
+    display: block; width: 100%; padding: 0.75rem 1rem; font-size: 1rem; color: var(--c-text);
+    background-color: var(--c-bg); border: 1px solid var(--c-border); border-radius: 0.5rem; transition: all 0.2s;
+}
+.form-field input:focus, .form-field textarea:focus {
+    border-color: var(--c-primary); outline: 0; box-shadow: 0 0 0 3px hsla(262, 69%, 52%, 0.2);
+}
+.form-check { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; }
+.form-footer { border-top: 1px solid var(--c-border); padding-top: 1.5rem; margin-top: 1.5rem; text-align: center; }
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block; font-weight: 600; text-align: center; cursor: pointer; border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem; font-size: 1rem; transition: all 0.2s; border: none;
+}
+.btn-primary { color: #fff; background: var(--c-primary); }
+.btn-primary:hover { background: var(--c-primary-light); transform: translateY(-2px); box-shadow: 0 4px 15px hsla(262, 69%, 52%, 0.2); }
+.btn-secondary { color: var(--c-primary); background-color: hsla(262, 69%, 52%, 0.1); }
+.btn-secondary:hover { background-color: hsla(262, 69%, 52%, 0.2); }
+.btn-block { display: block; width: 100%; }
+.btn-lg { padding: 0.8rem 1.8rem; font-size: 1.1rem; }
+
+/* --- Alerts --- */
+.alert-wrapper { margin-block: 2rem; }
+.alert { padding: 1rem; margin-bottom: 1rem; border-radius: 0.5rem; display: flex; justify-content: center; }
+.alert-success { background-color: #d1fae5; color: #065f46; }
+.alert-danger { background-color: #fee2e2; color: #991b1b; }
+.alert-info { background-color: #dbeafe; color: #1e40af; }
+
+/* --- Specific Pages --- */
+/* Matcher */
+.form-control-file { font-size: 0.9rem; padding: 0.5rem; }
+/* Results */
+.score-circle { position: relative; width: 200px; height: 200px; margin: 2rem auto; border-radius: 50%;
+    display: grid; place-items: center; background: conic-gradient(var(--c-primary) calc(var(--score) * 1%), var(--c-border) 0);
+    animation: grow-score 1s ease-out forwards;
+}
+@keyframes grow-score { from { --score: 0; } }
+.score-value {
+    background: var(--c-surface); width: calc(100% - 30px); height: calc(100% - 30px);
+    border-radius: 50%; display: grid; place-items: center;
+    font-size: 3rem; font-weight: 700; color: var(--c-primary);
+}
+.score-value span { font-size: 1.5rem; color: var(--c-text-muted); }
+.results-text { max-width: 450px; margin: 2rem auto 2.5rem; }
+/* History */
+.table-responsive { overflow-x: auto; }
+.history-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+.history-table th, .history-table td { padding: 1rem; border-bottom: 1px solid var(--c-border); text-align: left; }
+.score-badge { font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 1rem;
+    background: hsla(calc(var(--score) * 1.2), 80%, 95%); color: hsl(calc(var(--score) * 1.2), 80%, 30%);
+}
+.dark-mode .score-badge { background: hsla(calc(var(--score) * 1.2), 80%, 20%); color: hsl(calc(var(--score) * 1.2), 80%, 80%); }
+.btn-delete { background: none; border: none; cursor: pointer; color: var(--c-text-muted); }
+.btn-delete:hover { color: var(--c-danger); }
+
+/* --- Footer --- */
+.site-footer { text-align: center; padding: 2rem; margin-top: 2rem; color: var(--c-text-muted); font-size: 0.9em; }

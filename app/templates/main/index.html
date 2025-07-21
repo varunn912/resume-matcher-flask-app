@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content-section matcher-container">
+    <div class="matcher-header">
+        <h1>AI-Powered Resume Matcher</h1>
+        <p>Instantly score your resume against a job description to see how well you match.</p>
+    </div>
+    <form method="POST" enctype="multipart/form-data" class="matcher-form">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.resume.label }}
+            {{ form.resume(class="form-control-file") }}
+            {% if form.resume.errors %}<div class="invalid-feedback d-block">{% for error in form.resume.errors %}<span>{{ error }}</span>{% endfor %}</div>{% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.job_description.label }}
+            {{ form.job_description(rows="12", placeholder="Paste the full job description here...") }}
+             {% if form.job_description.errors %}<div class="invalid-feedback d-block">{% for error in form.job_description.errors %}<span>{{ error }}</span>{% endfor %}</div>{% endif %}
+        </div>
+        {{ form.submit(class="btn btn-primary btn-lg btn-block") }}
+    </form>
+</div>
+{% endblock content %}

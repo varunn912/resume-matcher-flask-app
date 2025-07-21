@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content-section results-container">
+    <div class="results-header">
+        <h1>Match Analysis Complete</h1>
+        <p>Here's your compatibility score.</p>
+    </div>
+    <div class="score-circle" style="--score: {{ score }};">
+        <div class="score-value">{{ score|round|int }}<span>%</span></div>
+    </div>
+    <p class="results-text">A higher score indicates better alignment between the skills and keywords in your resume and the job description.</p>
+    <a href="{{ url_for('main.index') }}" class="btn btn-secondary">Analyze Another Resume</a>
+</div>
+{% endblock content %}

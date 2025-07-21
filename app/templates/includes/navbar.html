@@ -1,0 +1,22 @@
+<header class="site-header">
+    <nav class="navbar container">
+        <a class="navbar-brand" href="{{ url_for('main.index') }}">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span>Resume Matcher</span>
+        </a>
+        <div class="navbar-nav">
+            {% if current_user.is_authenticated %}
+                <a class="nav-link" href="{{ url_for('main.index') }}">Home</a>
+                <a class="nav-link" href="{{ url_for('main.history') }}">History</a>
+                <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+            {% else %}
+                <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
+                <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
+            {% endif %}
+            <button id="theme-toggle" class="theme-toggle-btn" title="Toggle theme">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content-section history-container">
+    <div class="history-header">
+        <h1>Your Match History</h1>
+        <p>Review your past resume analyses.</p>
+    </div>
+    {% if matches %}
+    <div class="table-responsive">
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Date (IST)</th>
+                    <th>Score</th>
+                    <th>Job Description Snippet</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for match in matches %}
+                <tr>
+                    <td data-label="Date">{{ match.timestamp.strftime('%d-%b-%Y, %I:%M %p') }}</td>
+                    <td data-label="Score">
+                        <div class="score-badge">
+                            {{ match.score }}%
+                        </div>
+                    </td>
+                    <td data-label="Description">{{ match.job_description[:120] }}...</td>
+                    <td data-label="Action">
+                        <form action="{{ url_for('main.delete_history', history_id=match.id) }}" method="POST" onsubmit="return confirm('Delete this history item?');">
+                           <button type="submit" class="btn-delete" title="Delete">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                           </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="no-history">You have no saved matches. <a href="{{ url_for('main.index') }}">Analyze your first resume now!</a></p>
+    {% endif %}
+</div>
+{% endblock content %}

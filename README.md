@@ -1,167 +1,177 @@
-AI Resume Matcher
+# AI Resume Matcher
 
-Flask | Python | NLP | SQLite
+### Flask · Python · NLP · SQLite
 
-A full-stack web application that leverages Natural Language Processing (NLP) to intelligently evaluate how well a resume matches a given job description. The system computes a match score using TF-IDF vectorization and Cosine Similarity, enabling faster and data-driven resume screening.
+A **full-stack web application** that leverages **Natural Language Processing (NLP)** to intelligently evaluate how well a resume matches a given job description. The system computes a **match score** using **TF-IDF vectorization** and **Cosine Similarity**, enabling faster, accurate, and data-driven resume screening.
 
-This project demonstrates strong fundamentals in backend development, NLP, authentication, and clean UI design, making it suitable for Software Development Engineer (SDE) roles.
+This project highlights strong foundations in **backend engineering, NLP, secure authentication, database design, and UI/UX**, making it highly relevant for **Software Development Engineer (SDE)** roles.
 
-🚀 Key Features
-🔐 Secure Authentication System
+---
 
-User registration and login using Flask-Login
+## 🚀 Key Features
 
-Password hashing with Flask-Bcrypt
+### 🔐 Secure Authentication System
 
-OTP-based email verification for enhanced security
+* User registration and login using **Flask-Login**
+* Password hashing with **Flask-Bcrypt**
+* **OTP-based email verification** for enhanced security
 
-🧠 NLP-Based Resume Matching
+### 🧠 NLP-Based Resume Matching
 
-Converts resumes and job descriptions into numerical vectors using TF-IDF
+* Converts resumes and job descriptions into numerical vectors using **TF-IDF**
+* Calculates similarity using **Cosine Similarity**
+* Generates a clear and interpretable **match percentage score**
 
-Computes similarity using Cosine Similarity
+### 📄 Multi-Format Resume Support
 
-Generates a clear match percentage score
+* Supports resume uploads in:
 
-📄 Multi-Format Resume Support
+  * `.pdf`
+  * `.docx`
+  * `.txt`
+* Automatic text extraction and preprocessing pipeline
 
-Accepts resumes in:
+### 🕒 Match History Tracking
 
-.pdf
+* Stores all previous analyses in **SQLite**
+* Displays match history sorted by date
+* Timestamps handled in **Indian Standard Time (IST)**
 
-.docx
+### 🎨 Modern & Responsive UI
 
-.txt
+* Clean and professional user interface
+* Fully responsive across desktop and mobile devices
+* **Dark Mode toggle** for improved user comfort
 
-Automatic text extraction and preprocessing
+---
 
-🕒 Match History Tracking
+## 🛠 Tech Stack
 
-Stores previous resume analyses in SQLite
+### Backend
 
-Displays match history sorted by date
+* Python
+* Flask
+* Flask-SQLAlchemy
+* Flask-Login
+* Flask-Bcrypt
+* Flask-WTF
 
-Timestamps handled in Indian Standard Time (IST)
+### Frontend
 
-🎨 Modern & Responsive UI
+* HTML5
+* CSS3
+* JavaScript
 
-Clean, professional interface
+### Database
 
-Fully responsive across devices
+* SQLite
 
-Dark Mode toggle for improved user experience
+### NLP & Machine Learning
 
-🛠 Tech Stack
-Backend
+* Scikit-learn (TF-IDF, Cosine Similarity)
+* NLTK (text preprocessing)
 
-Python
+### Deployment
 
-Flask
+* Gunicorn (production-ready WSGI server)
 
-Flask-SQLAlchemy
+---
 
-Flask-Login
+## 📂 Project Architecture
 
-Flask-Bcrypt
-
-Flask-WTF
-
-Frontend
-
-HTML5
-
-CSS3
-
-JavaScript
-
-Database
-
-SQLite
-
-NLP & ML
-
-Scikit-learn (TF-IDF, Cosine Similarity)
-
-NLTK (text preprocessing)
-
-Deployment
-
-Gunicorn (production server)
-
-📂 Project Architecture
+```
 resume-matcher-flask-app/
 │
 ├── app/
-│ ├── routes.py
-│ ├── models.py
-│ ├── forms.py
-│ ├── utils/
-│ │ └── nlp_matcher.py
+│   ├── routes.py
+│   ├── models.py
+│   ├── forms.py
+│   ├── utils/
+│   │   └── nlp_matcher.py
 │
 ├── templates/
 ├── static/
-│ ├── css/
-│ └── js/
+│   ├── css/
+│   └── js/
 │
 ├── instance/
-│ └── database.db
+│   └── database.db
 │
 ├── run.py
 ├── requirements.txt
 └── README.md
+```
 
-⚙️ Setup & Installation
+---
 
-1️⃣ Clone the Repository
+## ⚙️ Setup & Installation
+
+### 1️⃣ Clone the Repository
+
+```bash
 git clone https://github.com/varunn912/resume-matcher-flask-app.git
 cd resume-matcher-flask-app
-2️⃣ Create Virtual Environment
+```
+
+### 2️⃣ Create Virtual Environment
+
+```bash
 python -m venv venv
-source venv/bin/activate
-3️⃣ Install Dependencies
+source venv/bin/activate   # On Windows: venv\\Scripts\\activate
+```
+
+### 3️⃣ Install Dependencies
+
+```bash
 pip install -r requirements.txt
-4️⃣ Run the Application
+```
+
+### 4️⃣ Run the Application
+
+```bash
 python run.py
-Access the app at:
+```
+
+Access the application at:
+
+```
 http://127.0.0.1:5000
+```
 
-📈 Use Cases
+---
 
-Resume screening for recruiters
+## 📈 Use Cases
 
-Self-evaluation before job applications
+* Resume screening for recruiters and hiring teams
+* Self-evaluation before job applications
+* ATS-style resume–JD matching experimentation
+* Hands-on learning project for NLP and Flask
 
-ATS-style matching experimentation
+---
 
-NLP learning and experimentation
+## 🧠 What This Project Demonstrates (For Recruiters)
 
-🧠 What This Project Demonstrates (For Recruiters)
+* Strong understanding of **Flask-based backend architecture**
+* Practical application of **NLP algorithms** in real-world use cases
+* Secure authentication and session management
+* Relational database modeling and query handling
+* Clean UI/UX design with accessibility considerations
+* Awareness of **production-ready deployment practices**
 
-Strong understanding of Flask backend architecture
+---
 
-Practical application of NLP algorithms
+## 🔮 Future Enhancements
 
-Secure authentication and user session handling
+* Skill-level weighting and keyword prioritization
+* Semantic matching using transformer-based embeddings (BERT)
+* Recruiter/admin dashboard
+* Cloud deployment (AWS / Azure)
+* Advanced resume parsing with Named Entity Recognition (NER)
 
-Database modeling and query management
+---
 
-Clean UI/UX with dark mode
+## 👨‍💻 Author
 
-Production-ready deployment awareness
-
-🔮 Future Enhancements
-
-Skill-level weighting and keyword importance
-
-Semantic matching using embeddings (BERT)
-
-Admin dashboard for recruiters
-
-Cloud deployment (AWS / Azure)
-
-Resume parsing with named entity recognition
-
-👨‍💻 Author
-Kamshetty Varun
-B.Tech CSE (AI & ML)
-Aspiring Software Development Engineer (SDE)
+**Kamshetty Varun**
+B.Tech – Computer Science & Engineering (AI & ML)
+Aspiring Software Development Engineer (
